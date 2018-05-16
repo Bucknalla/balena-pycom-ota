@@ -9,6 +9,8 @@ firmware updates. This consists of two components:
 This directory is laid out such that the update sever can directly run from it.
 For a detailed description of how the server expect the directory to be structured please read the comment at the top of `OTA_server.py`.
 
+![Resin OTA Server](images/resin-pycom.png)
+
 Installation
 -----
 
