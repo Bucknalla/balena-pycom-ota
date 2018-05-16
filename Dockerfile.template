@@ -17,8 +17,5 @@ COPY . ./
 # switch on systemd init system in container
 ENV INITSYSTEM on
 
-# Get User Settings from Resin Device ENVs
-RUN generate_config.sh
-
-# main.py will run when container starts up on the device
-CMD ["python","OTA_server.py"]
+# Start script and run OTA_server.py will run when container starts up on the device
+CMD ["bash","start.sh"]
