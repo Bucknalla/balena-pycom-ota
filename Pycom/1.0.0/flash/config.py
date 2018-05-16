@@ -1,0 +1,5 @@
+SERVER_IP = "192.168.1.217" 
+SERVER_PORT = 8021 
+WIFI_SSID = "EE-meec5b" 
+WIFI_PASS = "east-tag-cubic" 
+SERVER_PORT = 8021 
