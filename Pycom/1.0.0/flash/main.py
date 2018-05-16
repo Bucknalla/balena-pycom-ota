@@ -18,10 +18,11 @@ ota = WiFiOTA(WIFI_SSID,
               SERVER_IP,  # Update server address
               SERVER_PORT)  # Update server port
 
+# Show blue LED for 1.0.0
+pycom.rgbled(0x000055)
+
 # Perform OTA
 ota.connect()
 ota.update()
-
-pycom.rgbled(0x005500)
 
 sleep(5)
