@@ -77,4 +77,5 @@ SERVER_PORT =  "your-server-port"
 
 - [x] Allow for Device Variable Configuration
 - [ ] Allow eligible devices to open Access Points for Pycom Devices
-- [ ] Provide example for fault tolerant software (i.e. fallback firmware)
+- [ ] Provide example for fault tolerant software (i.e. restore to previous firmware)
+- [ ] Provide automatic firmware retrieval from Pycom servers
