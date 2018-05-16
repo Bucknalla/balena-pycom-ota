@@ -53,8 +53,7 @@ class OTA():
                     break
                 except Exception as e:
                     print(e)
-                    msg = "Error downloading `{}` retrying..."
-                    print(msg.format(f['URL']))
+                    print("Error downloading `{}` retrying...".format(f['URL']))
             else:
                 raise Exception("Failed to download `{}`".format(f['URL']))
 
@@ -153,7 +152,7 @@ class WiFiOTA(OTA):
         self.port = port
 
     def connect(self):
-        self.wlan = network.WLAN(mode=network.WLAN.STA, antenna=network.WLAN.EXT_ANT)
+        self.wlan = network.WLAN(mode=network.WLAN.STA)
         if not self.wlan.isconnected() or self.wlan.ssid() != self.SSID:
             for net in self.wlan.scan():
                 if net.ssid == self.SSID:
@@ -161,7 +160,6 @@ class WiFiOTA(OTA):
                                                        self.password))
                     while not self.wlan.isconnected():
                         machine.idle()  # save power while waiting
-                    print(self.wlan.ifconfig())
                     break
             else:
                 raise Exception("Cannot find network '{}'".format(self.SSID))
@@ -175,8 +173,6 @@ class WiFiOTA(OTA):
         return req
 
     def get_data(self, req, dest_path=None, hash=False, firmware=False):
-        h = None
-
         # Connect to server
         print("Requesting: {}".format(req))
         s = socket.socket(socket.AF_INET,
@@ -236,7 +232,6 @@ class WiFiOTA(OTA):
             # ensure we close it if there is an error
             if h is not None:
                 h.digest()
-            print("here")
             raise e
 
         hash_val = ubinascii.hexlify(h.digest()).decode()

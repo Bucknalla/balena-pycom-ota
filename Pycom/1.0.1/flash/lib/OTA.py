@@ -162,7 +162,7 @@ class WiFiOTA(OTA):
                         machine.idle()  # save power while waiting
                     break
             else:
-                raise Exception("Cannot find network '{}'".format(SSID))
+                raise Exception("Cannot find network '{}'".format(self.SSID))
         else:
             # Already connected to the correct WiFi
             pass
