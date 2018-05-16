@@ -9,7 +9,9 @@ firmware updates. This consists of two components:
 This directory is laid out such that the update sever can directly run from it.
 For a detailed description of how the server expect the directory to be structured please read the comment at the top of `OTA_server.py`.
 
-![Resin OTA Server](images/resin-pycom.png)
+<p align="center">
+<img src="images/resin-pycom.png" width="600px" >
+</p>
 
 Installation
 -----
@@ -26,7 +28,7 @@ Setup
 -----
 The Pycom OTA Server will run a HTTP server on port 8000 (this can be changed in the [OTA_server.py](OTA_server.py) file). The OTA server allows for both firmware (FW) and software (SW) updates to Pycom devices.
 
-Within this repository, there are two directories labelled `1.0.0` and `1.0.1`. These are both working examples of the OTA procedure, the only difference being the colour of the on-board LED so that a successful update can be demonstrated (Blue for `1.0.0` and green for `1.0.1`). You should upload version `1.0.0` to the module first and then via the OTA update procedure it will update to version `1.0.1`. For more information, see the Pycom Libraries [OTA Example](https://github.com/pycom/pycom-libraries/tree/master/examples/OTA). Additional versions of SW may be placed into the [Pycom](Pycom/) folder, following the same versioning scheme.
+Within this repository, there are two directories labelled `1.0.0` and `1.0.1`. These are both working examples of the OTA procedure, the only difference being the colour of the on-board LED so that a successful update can be demonstrated (Blue for `1.0.0` and green for `1.0.1`). You should upload version `1.0.0` to the module first and then via the OTA update procedure it will update to version `1.0.1`. The `pymakr.conf` associated with this project is included for ease of identifying which directory to upload. For more information, see the Pycom Libraries [OTA Example](https://github.com/pycom/pycom-libraries/tree/master/examples/OTA). Additional versions of SW may be placed into the [Pycom](Pycom/) folder, following the same versioning scheme.
 
 You will also need to set up device/fleet variables [config.py](config.py) to add your WiFi SSID, password and the address of the update server. Ensure you make these changes in both `1.0.0` and `1.0.1` or the code will stop working after the OTA update.
 
