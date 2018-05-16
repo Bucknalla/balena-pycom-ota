@@ -4,4 +4,3 @@ lib
 pip-selfcheck.json
 Pycom/1.0.0/flash/config.py
 Pycom/1.0.1/flash/config.py
-Makefile

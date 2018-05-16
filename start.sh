@@ -16,3 +16,10 @@ ln config.py Pycom/1.0.0/flash/config.py
 ln config.py Pycom/1.0.1/flash/config.py
 
 python Pycom/OTA_server.py
+
+function cleanup {
+  echo "Cleaning up config.py"
+  > config.py
+}
+
+trap cleanup EXIT
