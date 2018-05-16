@@ -68,7 +68,7 @@ This will then build the container image and start the server running on your de
 User Settings
 -----
 
-In order to specify settings such as `WIFI_SSID` and `WIFI_PASS`, you will need to navigate to the `device service variable` settings tab. Here create variables for the following options:
+In order to specify settings such as `WIFI_SSID` and `WIFI_PASS`, you will need to navigate to the `device service variable` settings tab within the Resin dashboard interface. Create variables with following options:
 
 ```
 WIFI_SSID = "your-wifi-ssid"
@@ -82,4 +82,4 @@ SERVER_PORT =  "your-server-port"
 - [x] Allow for Device Variable Configuration
 - [ ] Allow eligible devices to open Access Points for Pycom Devices
 - [ ] Provide example for fault tolerant software (i.e. restore to previous firmware)
-- [ ] Provide automatic firmware retrieval from Pycom servers
+- [ ] Provide automatic firmware retrieval from Pycom servers (With options for Stable, Latest, etc. builds)
