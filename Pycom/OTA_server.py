@@ -94,7 +94,7 @@
 #    "version": "1.0.1b"
 # }
 #
-# The manifest contains the following feilds:
+# The manifest contains the following fields:
 #  "delete": A list of paths to files which are no longer needed
 #  "firmware": The URL and SHA1 hash of the firmware image
 #  "new": the URL, path on end device and SHA1 hash of all new files
@@ -126,10 +126,13 @@ from distutils.version import LooseVersion
 
 PORT = 8021
 
+os.chdir("Pycom")
+
 
 class OTAHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
+
         print("Got query for: {}".format(self.path))
 
         # Parse the URL
@@ -152,7 +155,7 @@ class OTAHandler(BaseHTTPRequestHandler):
                 current_ver = '0'
 
             # Send manifest
-            print("Generating a manifest from version: {}".format(current_ver))
+            print("Generating a manifest based on version: {}".format(current_ver))
             manifest = generate_manifest(current_ver, host)
             j = json.dumps(manifest,
                            sort_keys=True,
@@ -178,7 +181,7 @@ class OTAHandler(BaseHTTPRequestHandler):
 # highest version number as per LooseVersion.
 def get_latest_version():
     latest = None
-    for d in os.listdir('Pycom/'):
+    for d in os.listdir('.'):
         if os.path.isfile(d):
             continue
         print(d)
@@ -259,6 +262,7 @@ def get_new_firmware(path, current_ver):
 #    host - The server address, used in URL formatting
 def generate_manifest_entry(host, path, version):
     path = "/".join(path.split(os.path.sep))
+    print(path)
     entry = {}
     entry["dst_path"] = "/{}".format(path)
     entry["URL"] = "http://{}/{}/{}".format(host, version, path)
