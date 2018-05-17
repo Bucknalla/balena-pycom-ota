@@ -27,11 +27,9 @@ The Pycom OTA Server will run a HTTP server on port 8000 (this can be changed in
 
 Within this repository, there are two directories labelled `1.0.0` and `1.0.1`. These are both working examples of the OTA procedure, the only difference being the colour of the on-board LED so that a successful update can be demonstrated (Blue for `1.0.0` and green for `1.0.1`). You should upload version `1.0.0` to the module first and then via the OTA update procedure it will update to version `1.0.1`. The `pymakr.conf` associated with this project is included for ease of identifying which directory to upload. For more information, see the Pycom Libraries [OTA Example](https://github.com/pycom/pycom-libraries/tree/master/examples/OTA). Additional versions of SW may be placed into the [Pycom](Pycom/) folder, following the same versioning scheme.
 
-You will also need to set up device/fleet variables [config.py](config.py) to add your WiFi SSID, password and the address of the update server. Ensure you make these changes in both `1.0.0` and `1.0.1` or the code will stop working after the OTA update.
+You will also need to set up device/fleet variables [config.py](config.py) to add your WiFi SSID, password and the address of the update server. Ensure you make these changes in both `1.0.0` and `1.0.1` or the code will stop working after the OTA update. Additionally, if you wish to use the OTA server to update the firmware of a Pycom device, place the firmware.bin file into the [Pycom](Pycom/) directory.
 
-**It is essential that you test the SW and FW before deploying to a device in the field as there is no way to recover a device failure, unless you have included such fault tolerance.**
-
-Additionally, if you wish to use the OTA server to update the firmware of a Pycom device, place the firmware.bin file into the [Pycom](Pycom/) directory.
+**It is essential that you test the SW and FW before deploying to a device in the field as there is no way to recover a device failure.** I intend to provide examples with improved fault tolerance with regards to restoring previous firmware/software version, in later additions to this project.
 
 # Pycom Device
 
