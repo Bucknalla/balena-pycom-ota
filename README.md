@@ -1,13 +1,11 @@
 # Resin OTA Manager for Pycom Devices
 
 
-This directory contains a example implementation of over the air (OTA)
-firmware updates. This consists of two components:
-  - A server that serves the update files and generates update "manifests"
-  - A library that allows a Pycom module perform updates from the server
+This repo consists of a [Resin](https://resin.io) image of a Pycom Over the Air (OTA) firmware (FW) and software (SW) Manager. The repo consists of two main components:
+  - The server that provides the update files and generates update "manifests" (to determine the correct FW/SW to issue)
+  - The library that allows a Pycom module perform updates from the server, along with an example `main.py` script
 
-This directory is laid out such that the update sever can directly run from it.
-For a detailed description of how the server expect the directory to be structured please read the comment at the top of `OTA_server.py`.
+This repo is set up such that the update sever can directly run from it, when built into a resin container. It is important to be aware that **file structure is extremely important** and moving files/firmware binaries around will cause issues when generating the manifesto.
 
 <p align="center">
 <img src="images/resin-pycom.png" width="600px" >
@@ -25,7 +23,7 @@ You may wish to jump ahead to the section on [Resin Dashboard](#resin-ota-manage
 # OTA Server
 
 ### Setup
-The Pycom OTA Server will run a HTTP server on port 8000 (this can be changed in the [OTA_server.py](OTA_server.py) file). The OTA server allows for both firmware (FW) and software (SW) updates to Pycom devices.
+The Pycom OTA Server will run a HTTP server on port 8000 (this can be changed in the [OTA_server.py](OTA_server.py) file). The OTA server allows for both FW and SW updates to Pycom devices.
 
 Within this repository, there are two directories labelled `1.0.0` and `1.0.1`. These are both working examples of the OTA procedure, the only difference being the colour of the on-board LED so that a successful update can be demonstrated (Blue for `1.0.0` and green for `1.0.1`). You should upload version `1.0.0` to the module first and then via the OTA update procedure it will update to version `1.0.1`. The `pymakr.conf` associated with this project is included for ease of identifying which directory to upload. For more information, see the Pycom Libraries [OTA Example](https://github.com/pycom/pycom-libraries/tree/master/examples/OTA). Additional versions of SW may be placed into the [Pycom](Pycom/) folder, following the same versioning scheme.
 
