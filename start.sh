@@ -7,15 +7,13 @@ echo 'SERVER_PORT = '"$SERVER_PORT"' ' >> config.py
 echo 'WIFI_SSID = "'"$WIFI_SSID"'" ' >> config.py
 echo 'WIFI_PASS = "'"$WIFI_PASS"'" ' >> config.py
 
-# Remove config files if they exist
-if [ Pycom/1.0.0/flash/config.py -o Pycom/1.0.1/flash/config.py ]; then
-    rm Pycom/1.0.0/flash/config.py
-    rm Pycom/1.0.1/flash/config.py
-fi
-
 # Link configuration script to SW stores
-ln config.py Pycom/1.0.0/flash/config.py
-ln config.py Pycom/1.0.1/flash/config.py
+for dir in Pycom/* ; do
+   if [ -d "${dir}/flash/" ]; then
+       echo "Found version: $(basename $dir)"
+       ln --force config.py "${dir}/flash/config.py"
+   fi
+done
 
 echo "Starting OTA Server"
 python Pycom/OTA_server.py
