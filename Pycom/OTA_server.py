@@ -124,7 +124,14 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse, parse_qs
 from distutils.version import LooseVersion
 
-PORT = os.environ['SERVER_PORT']
+try:
+    PORT = int(os.environ['SERVER_PORT'])
+except KeyError:
+    print("SERVER_PORT env var is not set, setting default port 8000")
+    PORT = 8000
+except ValueError:
+    print("SERVER_PORT env var not a number, setting default port 8000")
+    PORT = 8000
 
 os.chdir("Pycom")
 
