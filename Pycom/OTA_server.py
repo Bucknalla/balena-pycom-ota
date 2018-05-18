@@ -124,7 +124,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse, parse_qs
 from distutils.version import LooseVersion
 
-PORT = 8021
+PORT = os.environ['SERVER_PORT']
 
 os.chdir("Pycom")
 
