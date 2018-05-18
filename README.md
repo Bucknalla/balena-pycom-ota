@@ -65,7 +65,7 @@ In order to specify settings such as `WIFI_SSID` and `WIFI_PASS`, you will need 
 
 ```
 WIFI_SSID = "your-wifi-ssid"
-WIFI_PW = "your-wifi-password"
+WIFI_PASS = "your-wifi-password"
 SERVER_IP = "your-server-ip"
 SERVER_PORT =  "your-server-port"
 ```
