@@ -149,7 +149,7 @@ class WiFiOTA(OTA):
         self.SSID = ssid
         self.password = password
         self.ip = ip
-        self.port = port
+        self.port = int(port)
 
     def connect(self):
         self.wlan = network.WLAN(mode=network.WLAN.STA)
