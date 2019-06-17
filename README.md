@@ -1,4 +1,4 @@
-# balena OTA Manager for Pycom Devices
+# Balena OTA Manager for Pycom Devices
 
 This repo consists of a [balena](https://balena.io) image of a Pycom Over the Air (OTA) firmware (FW) and software (SW) Manager. The repo consists of two main components:
 
